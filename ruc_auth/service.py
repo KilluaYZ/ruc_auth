@@ -1,4 +1,4 @@
-# ict_auth/service.py
+# ruc_auth/service.py
 import logging
 import os
 import signal
@@ -10,7 +10,7 @@ from .core import WebManager
 from .logger import configure_logging
 
 configure_logging("service")
-logger = logging.getLogger("ict_auth")
+logger = logging.getLogger("ruc_auth")
 
 
 def handle_exit(signum, frame):

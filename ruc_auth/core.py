@@ -8,7 +8,7 @@ from playwright.sync_api import TimeoutError as PlaywrightTimeout
 from rich.prompt import Prompt
 
 URL = "https://gw.ict.ac.cn"
-logger = logging.getLogger("ict_auth")
+logger = logging.getLogger("ruc_auth")
 debug = os.getenv("DEBUG", "0")
 
 

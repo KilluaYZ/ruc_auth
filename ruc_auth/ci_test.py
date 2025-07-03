@@ -4,7 +4,7 @@ from pathlib import Path
 
 from .core import WebManager
 
-logger = logging.getLogger("ict_auth")
+logger = logging.getLogger("ruc_auth")
 
 TEST_URL = "https://google.com"
 

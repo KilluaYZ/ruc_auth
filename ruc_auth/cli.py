@@ -1,4 +1,4 @@
-# ict_auth/cli.py
+# ruc_auth/cli.py
 import logging
 import os
 import shlex
@@ -12,13 +12,13 @@ from ._version import __version__
 from .logger import configure_logging
 
 app = typer.Typer(
-    help="A command-line tool for ICT network authentication.",
+    help="A command-line tool for RUC network authentication.",
     add_completion=False,
     pretty_exceptions_enable=False,
 )
 
 configure_logging("cli")
-logger = logging.getLogger("ict_auth")
+logger = logging.getLogger("ruc_auth")
 debug = os.getenv("DEBUG", "0")
 
 
@@ -31,15 +31,15 @@ def enable() -> None:
     if debug == "1":
         account["debug"] = "1"
     systemd.create_service(
-        service_name="ict_auth",
-        executable_path=f"{shlex.quote(sys.executable)} -m ict_auth.service",
-        description="ICT Network Authentication Service",
+        service_name="ruc_auth",
+        executable_path=f"{shlex.quote(sys.executable)} -m ruc_auth.service",
+        description="RUC Network Authentication Service",
         restart_policy="always",
         RestartSec="10min",
         environment_vars=account,
     )
-    systemd.restart_service("ict_auth")
-    systemd.enable_service("ict_auth")
+    systemd.restart_service("ruc_auth")
+    systemd.enable_service("ruc_auth")
     logger.info("✅ Auto reconnection service enabled successfully.")
 
 
@@ -48,7 +48,7 @@ def disable() -> None:
     """
     Disable the auto reconnection service.
     """
-    systemd.remove_service("ict_auth")
+    systemd.remove_service("ruc_auth")
     logger.info("✅ Auto reconnection service disabled successfully.")
 
 
@@ -57,7 +57,7 @@ def logs() -> None:
     """
     Show the logs of auto reconnection service.
     """
-    file = Path(__file__).parent / "ict_auth.log"
+    file = Path(__file__).parent / "ruc_auth.log"
     if file.exists():
         with open(file, "r", encoding="utf-8") as f:
             for line in f:

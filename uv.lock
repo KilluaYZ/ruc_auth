@@ -86,7 +86,7 @@ wheels = [
 ]
 
 [[package]]
-name = "ict-auth"
+name = "ruc-auth"
 source = { editable = "." }
 dependencies = [
     { name = "playwright" },

@@ -13,8 +13,8 @@ wheels/
 _version.py
 
 # browser and libs
-ict_auth/browser
-ict_auth/libs
+ruc_auth/browser
+ruc_auth/libs
 
 # local log
-ict_auth/ict_auth.log
+ruc_auth/ruc_auth.log

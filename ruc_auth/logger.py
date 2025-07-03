@@ -1,4 +1,4 @@
-# ict_auth/logger.py
+# ruc_auth/logger.py
 
 import logging
 import os
@@ -9,7 +9,7 @@ from rich.logging import RichHandler
 
 
 def configure_logging(mode: Literal["cli", "service"]):
-    root_logger = logging.getLogger("ict_auth")
+    root_logger = logging.getLogger("ruc_auth")
     debug = os.getenv("DEBUG", "0")
     level = logging.DEBUG if debug == "1" else logging.INFO
     root_logger.setLevel(level)
@@ -26,7 +26,7 @@ def configure_logging(mode: Literal["cli", "service"]):
         )
         formatter = logging.Formatter("[%(levelname)s] %(message)s")
     else:
-        log_file_path = Path(__file__).parent / "ict_auth.log"
+        log_file_path = Path(__file__).parent / "ruc_auth.log"
         handler = logging.FileHandler(log_file_path, encoding="utf-8")
         formatter = logging.Formatter(
             "[%(asctime)s] [%(levelname)s] %(message)s", datefmt="%Y-%m-%d %H:%M:%S"
