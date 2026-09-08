@@ -151,7 +151,7 @@ pub fn config_cmd(path: &Path, action: &ConfigAction) -> Result<(), Box<dyn Erro
                 println!("[config] 配置文件已存在: {}", path.display());
             }
             println!("可用字段: {}", KEYS.join(", "));
-            println!("示例: ruc-auth config set username 2024103935");
+            println!("示例: ruc-auth config set username 2020202020");
         }
         ConfigAction::Get { key } => {
             let cfg = load(path)?;
